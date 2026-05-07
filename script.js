@@ -177,7 +177,7 @@ function initAnimations(){
     .to('.hero-sub',{opacity:1,y:0,duration:0.8,ease:'power3.out'}, 0.8)
     .to('.hero-cta-row',{opacity:1,y:0,duration:0.8,ease:'power3.out'}, 1.0)
     .to('.hero-contact-card',{opacity:1,x:0,y:0,z:0,duration:1,ease:'expo.out'}, 0.6)
-    .to('.hero-right-deco',{opacity:0.18,x:0,y:0,duration:1,ease:'expo.out'}, 0.6)
+    .to('.hero-right-deco',{opacity:0.5,x:0,y:0,duration:1,ease:'expo.out'}, 0.6)
     .to('.hero-scroll-indicator',{opacity:1,duration:0.6}, 1.3);
 
   window.addEventListener('scroll',()=>{

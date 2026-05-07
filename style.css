@@ -383,13 +383,13 @@ body:hover #cursor-ring { border-color: rgba(230,57,70,0.8); }
 
   padding: 36px 32px 32px;
 
-  border: 1px solid rgba(255, 0, 0, 0.08);
+  border: 1px solid rgba(255, 0, 0, 0.15);
 
-  background-color: var(--bg);
+  background: rgba(5, 5, 8, 0.4);
   background-image: linear-gradient(var(--panel), var(--panel));
 
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   transform: translateZ(0) translateX(40px); 
   will-change: transform, backdrop-filter;
   opacity: 0;
@@ -410,13 +410,14 @@ body:hover #cursor-ring { border-color: rgba(230,57,70,0.8); }
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255, 0, 0, 0.9),
+    var(--red),
     transparent
   );
 
   box-shadow:
-    0 0 8px rgba(255, 0, 0, 0.308),
-    0 0 18px rgba(0, 0, 0, 0.968);
+    0 0 8px rgba(230, 57, 70, 0.3),
+    0 0 18px rgba(0, 0, 0, 0.8);
+  z-index: 10;
 }
 
 .hero-contact-card::after {
@@ -428,18 +429,11 @@ body:hover #cursor-ring { border-color: rgba(230,57,70,0.8); }
   background:
     radial-gradient(
       circle at center,
-      rgba(255, 2, 2, 0.080),
-      transparent 65%
+      rgba(255, 2, 2, 0.1),
+      transparent 70%
     );
 
   pointer-events: none;
-}
-
-.hero-contact-card::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--red), transparent);
 }
 .hc-avatar {
   width: 80px; height: 80px;
@@ -580,11 +574,8 @@ body:hover #cursor-ring { border-color: rgba(230,57,70,0.8); }
 }
 .hc-resume-btn {
   width: 100%;
+  text-decoration: none;
   margin-top: 16px;
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  text-decoration:none;
   padding: 14px;
   background: linear-gradient(135deg, var(--red), #c1121f);
   border: none;
@@ -764,7 +755,7 @@ section { position: relative; z-index: 10; }
   min-height: 285px;
   border: 1px solid var(--border);
   background-color: var(--bg);
-  background-image: url('https://0x0906.github.io/Portfolio/1.jpg');
+  background-image: url('/1.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -1516,8 +1507,6 @@ footer {
   .hero-title-line{ text-align: center;}
   /* body { cursor: pointer; }
   #cursor, #cursor-ring { display: none; } */
-  body { cursor: auto; }
-  #cursor, #cursor-ring { display: none !important; }
   #hero {
     grid-template-columns: 1fr !important;
     grid-template-rows: auto auto;
@@ -1588,7 +1577,7 @@ footer {
   .hc-link-icon { width: 30px; height: 30px; font-size: 13px; }
   .hc-link-val { font-size: 12px; }
   .hc-link-label { font-size: 9px; }
-  .hc-resume-btn { padding: 12px; font-size: 10px; clip-path: none; }
+  .hc-resume-btn { padding: 12px; font-size: 10px; }
 
   #about { padding: 72px var(--side-pad); gap: 32px; }
   .education-grid {
@@ -1677,4 +1666,5 @@ footer {
   .stat-num { font-size: 20px; }
   footer { padding: 20px var(--side-pad); }
   .footer-socials { margin-right: 0; }
+}n-right: 0; }
 }
