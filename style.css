@@ -581,6 +581,10 @@ body:hover #cursor-ring { border-color: rgba(230,57,70,0.8); }
 .hc-resume-btn {
   width: 100%;
   margin-top: 16px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  text-decoration:none;
   padding: 14px;
   background: linear-gradient(135deg, var(--red), #c1121f);
   border: none;
