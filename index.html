@@ -1,5 +1,383 @@
-<html>
-  <body>
-    <h1>hakuna matata....</h1>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VIGNESH.DEV — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<div id="progress-bar"></div>
+
+<div id="loader">
+  <div class="loader-content">
+    <div class="loader-logo">V</div>
+    <div class="loader-bar-wrap">
+      <div class="loader-bar" id="loader-bar"></div>
+    </div>
+    <div class="loader-text-row">
+      <span>LOADING...</span>
+      <span id="loader-pct">0%</span>
+    </div>
+  </div>
+</div>
+
+<nav id="navbar">
+  <div class="nav-container">
+    <div class="nav-logo" style="gap: 0;">
+      <div class="nav-dot" style="margin-right: 10px;"></div>
+      VIGNESH<span>.DEV</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#tech">Stack</a></li>
+      <li><a href="#projects">Projects</a></li>
+    </ul>
+
+    <div style="display: flex; align-items: center; gap: 20px;">
+      <button id="sound-toggle" title="Toggle Sound">
+        <span class="sound-label">AUDIO</span>
+        <div class="sound-bars">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+      </button>
+      <button class="nav-luck-btn" id="luck-btn">🍀 Your Fortune</button>
+
+      <button id="nav-hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div id="nav-drawer">
+  <ul class="drawer-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#tech">Stack</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#quotes">Quotes</a></li>
+  </ul>
+  <button class="nav-luck-btn drawer-luck" id="luck-btn-mobile" style="display:block;">🍀 Your Fortune</button>
+</div>
+
+<section id="hero">
+
+  <div class="hero-left">
+    <div class="hero-eyebrow">HELLO, I'M</div>
+    <h1 class="hero-title">
+      <span class="hero-title-line glitch" data-text="VIGNESH">VIGNESH</span>
+      <span class="hero-title-line accent glitch" data-text="M">M</span>
+    </h1>
+    <p class="hero-sub">
+       Full-Stack TypeScript Developer focused on building scalable web applications, responsive user interfaces, and reliable backend systems using modern technologies.
+    </p>
+    <div class="hero-cta-row">
+      <button class="btn-primary" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">View My Work</button>
+      <button class="btn-ghost" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">More About Me</button>
+    </div>
+
+    <div class="hero-scroll-indicator">
+    <div class="scroll-line"></div>
+      <span style="font-size:11px;letter-spacing:0.3em;color:var(--dim)">SCROLL</span>
+    </div>
+    <div class="hero-corner-deco" style="font-family:var(--font-display); font-weight:900;">09-06-03</div>
+  </div>
+
+  <div class="hero-right">  
+    <div class="hero-card-wrapper">
+      <div class="hero-right-deco">
+        <svg viewBox="0 0 500 500">
+
+          <circle cx="250" cy="250" r="190" fill="none" stroke="#ff4d5a" stroke-width="18"/>
+
+          <circle cx="250" cy="250" r="110" fill="none" stroke="#ff4d5a" stroke-width="14"/>
+
+          <circle cx="250" cy="250" r="35" fill="#ff4d5a"/>
+
+          <g fill="#ff4d5a">
+            <path d="M250 95
+                    C290 95 305 135 280 160
+                    C260 180 220 175 215 140
+                    C210 110 225 95 250 95Z"/>
+
+            <path d="M390 300
+                    C410 340 385 370 350 360
+                    C320 350 305 315 325 290
+                    C345 265 375 270 390 300Z"/>
+
+            <path d="M110 300
+                    C90 340 115 370 150 360
+                    C180 350 195 315 175 290
+                    C155 265 125 270 110 300Z"/>
+          </g>
+        </svg>
+      </div>
+      <div class="hero-contact-card">
+        <!-- <div class="hc-corner tl"></div> -->
+        <div class="hc-corner bl"></div>
+        <div class="hc-corner br"></div>
+        <div class="hc-avatar">V</div>
+        <div class="hc-status">
+          <div class="hc-status-dot"></div>
+          <span class="hc-status-text">Available for work</span>
+        </div>
+        <div class="hc-name">VIGNESH M</div>
+        <div class="hc-role">Full-Stack TypeScript Developer</div>
+        <div class="hc-divider"></div>
+        <div class="hc-links">
+          <a href="https://www.linkedin.com/in/vignesh-m-15a024369" class="hc-link" style="--link-color:#0a66c2" target="_blank">
+            <div class="hc-link-icon" style="background:rgba(10,102,194,0.2);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#0a66c2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </div>
+            <div class="hc-link-info"><span class="hc-link-label">LinkedIn</span><span class="hc-link-val">@vignesh-m</span></div>
+            <span class="hc-link-arrow">&#x2192;</span>
+          </a>
+          <a href="https://github.com/0x0906" class="hc-link" style="--link-color:#ffffff" target="_blank">
+            <div class="hc-link-icon" style="background:rgba(255,255,255,0.1);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#ffffff"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </div>
+            <div class="hc-link-info"><span class="hc-link-label">GitHub</span><span class="hc-link-val">@0x0906</span></div>
+            <span class="hc-link-arrow">&#x2192;</span>
+          </a>
+          <a href="https://wa.me/918072477471" class="hc-link" style="--link-color:#25d366" target="_blank">
+            <div class="hc-link-icon" style="background:rgba(37,211,102,0.2);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </div>
+          <div class="hc-link-info"><span class="hc-link-label">WhatsApp</span><span class="hc-link-val">+91 80724 77471</span></div>
+          <span class="hc-link-arrow">&#x2192;</span>
+        </a>
+        <a href="mailto:vigneshdev1309@gmail.com" class="hc-link" style="--link-color:#ffd166">
+          <div class="hc-link-icon" style="background:rgba(255,209,102,0.2);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffd166" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div class="hc-link-info"><span class="hc-link-label">Email</span><span class="hc-link-val">vigneshdev1309@gmail.com</span></div>
+          <span class="hc-link-arrow">&#x2192;</span>
+        </a>
+      </div>
+      <button class="hc-resume-btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download Resume
+      </button>
+    </div>
+  </div>
+
+</section>
+
+<section id="about">
+  <div class="about-header section-header-centered">
+    <!-- <div class="section-tag">// 001 — ABOUT</div> -->
+    <h2 class="section-title">The Person<br>Behind The Code</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="about-visual">
+    <div class="about-chat-bubble">
+      <div class="chat-text">Hakkuna matata...</div>
+    </div>
+    <div class="about-img-placeholder" style="font-family:var(--font-display); font-weight:900;">
+      <div class="about-scan"></div>
+      <div class="about-corner tl"></div>
+      <div class="about-corner bl"></div>
+      <div class="about-corner tr"></div>
+      <div class="about-corner br"></div>
+    </div>
+
+  </div>
+  <div class="about-text">
+    <div class="about-body">
+      <p class="about-desc">
+        I am a Full-Stack Developer specializing in TypeScript-based applications.
+        I build modern, scalable, and user-focused web solutions with experience
+        across both frontend and backend development.
+      </p>
+
+      <p class="about-desc">
+        My work focuses on creating clean interfaces, efficient APIs, and maintainable
+        systems using modern development practices. I enjoy solving real-world problems
+        through technology and continuously improving my skills.
+      </p>
+
+      <div class="about-traits">
+        <div class="trait-item">
+          <span class="trait-icon">⚡</span>
+          <span class="trait-text">Modern Web Development</span>
+        </div>
+
+        <div class="trait-item">
+          <span class="trait-icon">🧠</span>
+          <span class="trait-text">Problem Solving</span>
+        </div>
+
+        <div class="trait-item">
+          <span class="trait-icon">🚀</span>
+          <span class="trait-text">Full-Stack Applications</span>
+        </div>
+
+        <div class="trait-item">
+          <span class="trait-icon">🎯</span>
+          <span class="trait-text">Clean & Scalable Code</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="education-header section-header-centered">
+    <h2 class="section-title">Education</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="education-grid">
+    <div class="edu-card">
+      <div class="edu-year">2024 — 2026</div>
+      <div class="edu-content">
+        <h3 class="edu-degree">Master of Computer Application</h3>
+        <div class="edu-uni">Madurai Kamaraj University</div>
+        <div class="edu-score">CGPA (upto 3rd sem) — 7.63</div>
+      </div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-year">2020 — 2023</div>
+      <div class="edu-content">
+        <h3 class="edu-degree">Bachelor of Computer Science</h3>
+        <div class="edu-uni">Mannar Thirumalai Naicker College</div>
+        <div class="edu-score">CGPA — 7.0</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="tech">
+  <div class="tech-header section-header-centered">
+    <!-- <div class="section-tag">// 002 — MY TOOLS</div> -->
+    <h2 class="section-title">What I Use</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="tech-grid" id="tech-grid">
+    <div class="tech-card"><div class="tech-icon"><i class="devicon-python-plain colored"></i></div><div class="tech-name">Python</div></div>
+    <div class="tech-card"><div class="tech-icon"><i class="devicon-flask-original colored"></i></div><div class="tech-name">Flask</div></div>
+    <div class="tech-card"><div class="tech-icon"><i class="devicon-nodejs-plain colored"></i></div><div class="tech-name">Node.js</div></div>
+    <div class="tech-card"><div class="tech-icon"><i class="devicon-typescript-plain colored"></i></div><div class="tech-name">TypeScript</div></div>
+    <div class="tech-card"><div class="tech-icon"><i class="devicon-docker-plain colored"></i></div><div class="tech-name">Docker</div></div>
+    <div class="tech-card"><div class="tech-icon"><i class="devicon-amazonwebservices-plain-wordmark colored"></i></div><div class="tech-name">AWS</div></div>
+    <div class="tech-card"><div class="tech-icon"><i class="devicon-express-original"></i></div><div class="tech-name">Express.js</div></div>
+    <div class="tech-card"><div class="tech-icon"><i class="devicon-react-original colored"></i></div><div class="tech-name">React.js</div></div>
+    <div class="tech-card"><div class="tech-icon"><i class="devicon-go-original-wordmark colored"></i></div><div class="tech-name">Golang</div></div>
+    <div class="tech-card"><div class="tech-icon"><i class="devicon-csharp-plain colored"></i></div><div class="tech-name">C#</div></div>
+    <div class="tech-card"><div class="tech-icon"><i class="devicon-tailwindcss-original colored"></i></div><div class="tech-name">TailwindCSS</div></div>
+    <div class="tech-card"><div class="tech-icon"><i class="devicon-github-original"></i></div><div class="tech-name">Git/GitHub</div></div>
+    <div class="tech-card"><div class="tech-icon"><i class="devicon-postgresql-plain colored"></i></div><div class="tech-name">PostgreSQL</div></div>
+    <div class="tech-card"><div class="tech-icon"><i class="devicon-mongodb-plain colored"></i></div><div class="tech-name">MongoDB</div></div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="projects-header section-header-centered">
+    <!-- <div class="section-tag">// 003 — MY WORK</div> -->
+    <h2 class="section-title">Projects</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="projects-grid">
+    <div class="project-card" onclick="window.open('https://github.com/0x0906/MiniMarket', '_blank')">
+      <div class="project-thumb">
+        <div class="project-thumb-glyph">🛒</div>
+        <div class="project-overlay"></div>
+      </div>
+      <div class="project-arrow">↗</div>
+      <div class="project-body">
+        <div class="project-num">PROJECT — 001</div>
+        <h3 class="project-title">MiniMarket</h3>
+        <p class="project-desc">A professional billing software demo featuring a smooth mobile shopping experience, real-time cart management, and payment simulations.</p>
+        <div class="project-tags">
+          <span class="tag">React Native</span><span class="tag">Expo</span><span class="tag">Context API</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card" onclick="window.open('https://github.com/0x0906/TcpRat.Project', '_blank')">
+      <div class="project-thumb">
+        <div class="project-thumb-glyph">🐀</div>
+        <div class="project-overlay"></div>
+      </div>
+      <div class="project-arrow">↗</div>
+      <div class="project-body">
+        <div class="project-num">PROJECT — 002</div>
+        <h3 class="project-title">TcpRat.Project</h3>
+        <p class="project-desc">A security-focused Remote Administration Tool for educational use. Features remote desktop control, file management, and system monitoring via TCP/IP.</p>
+        <div class="project-tags">
+          <span class="tag">C#</span><span class="tag">TCP/IP</span><span class="tag">Socket</span><span class="tag">WinForms</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card" onclick="window.open('https://github.com/0x0906/PassLock', '_blank')">
+      <div class="project-thumb">
+        <div class="project-thumb-glyph">🔐</div>
+        <div class="project-overlay"></div>
+      </div>
+      <div class="project-arrow">↗</div>
+      <div class="project-body">
+        <div class="project-num">PROJECT — 003</div>
+        <h3 class="project-title">PassLock</h3>
+        <p class="project-desc">A lightweight, self-hosted password manager featuring encrypted vaults with AES-GCM, OTP-based registration, and detailed activity logging.</p>
+        <div class="project-tags">
+          <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">AES-GCM</span><span class="tag">Security</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="quotes">
+  <div class="quotes-bg">⨝</div>
+  <div class="section-header-centered" style="margin-bottom:48px;">
+    <!-- <div class="section-tag">// 004 — QUOTES</div> -->
+    <h2 class="section-title">Quotes</h2>
+  </div>
+  <div class="quote-carousel" id="quote-carousel">
+
+  </div>
+  <div class="quote-dots" id="quote-dots">
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">VIGNESH<span>.DEV</span></div>
+  <div class="footer-copy">© 2026 VIGNESH M — FULL-STACK TYPESCRIPT DEVELOPER</div>
+  <div class="footer-socials">
+    <a href="#">CONTACT</a>
+  </div>
+</footer>
+
+<div id="luck-modal">
+  <div class="luck-box">
+    <!-- <div class="luck-corner tl"></div>
+    <div class="luck-corner bl"></div>
+    <div class="luck-corner br"></div> -->
+    <span class="luck-kanji" id="luck-kanji">大吉</span>
+    <div class="luck-title" id="luck-title">GREAT FORTUNE</div>
+    <div class="luck-msg" id="luck-msg">The stars align in your favor today. Your code shall compile without error, and your PRs shall be approved swiftly. Go forth and ship.</div>
+    <button class="luck-close" onclick="closeLuck()">CLOSE — ESC</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
 </html>
