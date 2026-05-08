@@ -755,7 +755,7 @@ section { position: relative; z-index: 10; }
   min-height: 285px;
   border: 1px solid var(--border);
   background-color: var(--bg);
-  background-image: url('/1.jpg');
+  background-image: url('https://0x0906.github.io/Portfolio/1.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
