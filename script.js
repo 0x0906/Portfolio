@@ -1,3 +1,17 @@
+
+const bgAudio = new Audio('https://0x0906.github.io/Portfolio/bg_audio.mp3');
+bgAudio.loop = true;
+bgAudio.volume = 0.1;
+
+bgAudio.addEventListener('timeupdate', function(){
+    var buffer = .44
+    if(this.currentTime > this.duration - buffer){
+        this.volume = Math.max(0, this.volume - 0.01);
+    } else if (this.volume < 0.1) {
+        this.volume = Math.min(0.1, this.volume + 0.01);
+    }
+});
+
 let audioCtx = null;
 let soundEnabled = false;
 
@@ -62,7 +76,12 @@ document.getElementById('sound-toggle').addEventListener('click',function(){
   initAudio();
   soundEnabled = !soundEnabled;
   this.classList.toggle('active', soundEnabled);
-  if(soundEnabled) playTone(330,'sine',0.3,0.04);
+  if(soundEnabled) {
+        bgAudio.play();
+        playTone(330,'sine',0.3,0.04);
+    } else {
+        bgAudio.pause();
+    }
 });
 
 const cursor = document.getElementById('cursor');

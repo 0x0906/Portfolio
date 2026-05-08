@@ -438,18 +438,20 @@ body:hover #cursor-ring { border-color: rgba(230,57,70,0.8); }
 .hc-avatar {
   width: 80px; height: 80px;
   border-radius: 50%;
-  border: 2px solid rgba(230,57,70,0.5);
+  border: 2px solid rgba(230,57,70,0.6);
   background: linear-gradient(135deg, #1a0a0d, #0d0010);
   display: flex; align-items: center; justify-content: center;
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: 42px;
+  font-size: 48px;
   color: var(--red);
   margin: 0 auto 17px;
   position: relative;
   box-shadow: 0 0 24px rgba(230,57,70,0.2);
   animation: avatarGlow 3s ease-in-out infinite;
-  letter-spacing: -0.05em;
+  letter-spacing: 0;
+  line-height: 1;
+  text-shadow: 0 0 15px rgba(230,57,70,0.6);
 }
 @keyframes avatarGlow {
   0%,100%{ box-shadow: 0 0 24px rgba(230,57,70,0.2); }
@@ -1572,7 +1574,7 @@ footer {
   .stat-label { font-size: 9px; }
 
   .hero-contact-card { padding: 24px 16px 16px; clip-path: none; border-radius: 2px; }
-  .hc-avatar { width: 60px; height: 60px; font-size: 24px; margin-bottom: 12px; }
+  .hc-avatar { width: 60px; height: 60px; font-size: 32px; margin-bottom: 12px; line-height: 1; }
   .hc-name { font-size: 13px; }
   .hc-role { font-size: 10px; margin-bottom: 20px; }
   .hc-link { padding: 10px 12px; }
